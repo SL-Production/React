@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import PokemonCard from './components/PokemonCard'
 import PropTypes from "prop-types";
@@ -31,10 +31,21 @@ const pokemonList = [
 function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0)
 
+  useEffect(() => {
+    alert(`hello pokemon trainer :)`);
+    console.log(`[LOADER]Le composant App s'est load avec succès.`);
+  },
+   []
+   )
+
 
   const handleNextPokemon = () => {
 
-    console.log(`Nouveau clic sur le bouton suivant, pokemonIndex = ${pokemonIndex}`);
+    if (pokemonList[pokemonIndex].name === "pikachu") {
+      alert(`Pika pikachu !!!`);
+    }
+
+    console.log(`Nouveau clic sur le bouton suivant, pokemonIndex = ${pokemonIndex +1}`);
 
     if (pokemonIndex < pokemonList.length - 1) {
       console.log(`Il y a encore des pokémons à afficher, pokemonIndex = ${pokemonIndex +1}`);
@@ -47,13 +58,17 @@ function App() {
 
   const handlePreviousPokemon = () => {
 
-    console.log(`Nouveau clic sur le bouton précédent, pokemonIndex = ${pokemonIndex}`);
+    if (pokemonList[pokemonIndex].name === "pikachu") {
+      alert(`Pika pikachu !!!`);
+    }
+
+    console.log(`Nouveau clic sur le bouton précédent, pokemonIndex = ${pokemonIndex +1}`);
 
     if (pokemonIndex > 0) {
-      console.log(`Il y a encore des pokémons à afficher, pokemonIndex = ${pokemonIndex}`);
+      console.log(`Il y a encore des pokémons à afficher, pokemonIndex = ${pokemonIndex +1}`);
       setPokemonIndex(pokemonIndex - 1)
     } else {
-      console.log(`Il n'y a plus de pokémons à afficher, pokemonIndex = ${pokemonIndex}`)
+      console.log(`Il n'y a plus de pokémons à afficher, pokemonIndex = ${pokemonIndex +1}`)
       setPokemonIndex(pokemonList.length - 1)
     }
   }
