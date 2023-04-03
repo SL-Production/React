@@ -1,6 +1,13 @@
+import PropTypes from "prop-types";
+
 function PokemonCard(pokemon) {
 
   const { name, imgSrc } = pokemon;
+  
+  PokemonCard.propTypes = {
+    name: PropTypes.string.isRequired,
+    imgSrc: PropTypes.string.isRequired,
+  }
 
   if (!imgSrc) {
     let noImg = "???";
