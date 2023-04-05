@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 function PokemonCard(pokemon) {
 
   const { name, imgSrc } = pokemon;
-  
+  const [pokemonIndex, setPokemonIndex] = useState(0)
+
   PokemonCard.propTypes = {
     name: PropTypes.string.isRequired,
     imgSrc: PropTypes.string.isRequired,
